@@ -9,4 +9,14 @@
 2. build.grade에 compile과 compileOnly도 차이가 있는것 같은데 차이를 정확히 모르겠다.
    1) lombok을 compileOnly로 해두고 하니 안된다. compile로 하니 된다. 차이가 뭘까?
 
-3. 
+3. git init 하여 .git 을 내 local에 만들었다.
+   git add READM.md 랑 git add ducu.txt 해서 이제 이 화일2개는 git으로 버전관리할꺼라고 list등록하였다.( 반대는 gitignore화일에 등록 )
+   git commit -m "startup" 이걸 수행해서 local에서 변경하던 화일에 요까지 변경한거 정리한다고 하여 commit을 하였다.( db에 savepoint랑 비슷 ) 메세지도 함께 남긴다.
+   내 local이 날아가면 안되므로 동일한 걸 remote에 repository를 생성하고 거기에 올려둔다. 아래 git remote 명령어는 remote repository 를 추가하는 명령어다.
+   git remote add orgin https://github.com/freesiads/myDoc.git
+   git push -u orgin master 를 수행하여 나의 orgin이 remote의 master에 push하였다.
+
+
+4. 계속 헷갈리는 한가지가 있다. Map 객체이다.
+   1) Map은 추상클래스다 따라서 생성할수 없다.(new로)
+   2) Map은 그래서 HashMap 클래스 등으로 생성하여 Casting하여 사용한다.
