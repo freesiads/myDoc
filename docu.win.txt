@@ -1,0 +1,12 @@
+1. window에서 git을 해보았다.
+2. git 프로그램을 깔고,
+3. project 디렉토리를 freesiads로 만든뒤,
+4. 그 디렉토리 안에서 진행하였다.
+5. 처음 git init 을 하여 /.git을 만들어 git을 사용하기 위한 초기화작업을 수행하고,
+6. git remote add orgin https://github.com/freesiads/myDoc.git 을 하여 원격저장소를 하나 추가한다.
+7. 그다음 git fetch orgin 을 하였다. ( 여기서 orgin은 원격의 기본 브랜치인듯 하다.)
+8. 그렇게 하면 원격저장소의 orgin이 나의 orgin에 오는거 같은데..뭐하는지는 모르겠다.
+9. 일단 나는 기본은 master인듯하다.
+10. 따라서, git pull orgin master 를 수행하여, orgin(원격브랜치)를 master(내꺼마스터브랜치)로 정보들을 가져왔다.
+11. 그렇게 하고 ls -al을 쳐보니 다 화일들이 다 생겼다.
+12. 사실 git fetch orgin 까지 하고 ls -al을 쳤을땐는 아무것도 없었다.
