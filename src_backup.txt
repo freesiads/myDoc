@@ -1,0 +1,79 @@
+package com.skp.ocbcheck.exchanger;
+
+/**
+ * Created by 1003642 on 2017. 2. 4..
+ */
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.yaml.snakeyaml.Yaml;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.*;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+import org.apache.commons.io.IOUtils;
+
+
+public  class ExchangeInitiator {
+    public static final String CHARSET = "euc-kr";
+    public static final int HEADER_LENGTH = 50;
+
+    public static final int HEADER_DATA_LENGTH[] = { -1, 4, 4, 8, 6, 10, 2, 4, 2, 2, 8 }; // sum is 50
+
+    private List<Map<String, Object>> request;
+
+    private List<Map<String, Object>> response;
+
+    private List<String> ifList;
+
+    private static Map<String,Map<String, Object>> interfaceMapper;
+
+    public  ExchangeInitiator() throws IOException {
+        load();
+    }
+
+    @SuppressWarnings("unchecked")
+    public void load() throws IOException {
+        Yaml ifListYaml = new Yaml();
+        Map<String, Object> ifListMap = (Map<String, Object>) ifListYaml.load(getClass().getResourceAsStream("/inf/nxmile/InterfaceList.yaml"));
+
+//        Yaml yaml = new Yaml();
+//        Map<String, Object> map = (Map<String, Object>) yaml.load(is);
+//
+//        Properties config = new Properties();
+//        config.load(IOUtils.toInputStream((String) map.get("config"),"euc-kr"));
+//
+//        request = (List<Map<String, Object>>) map.get("request");
+//        response = (List<Map<String, Object>>) map.get("response");
+        ifList =  (List<String>) ifListMap.get("InterfaceList");
+
+//        interfaceMapper = new HashMap<String,Map<String, Object>>();
+
+//        ifList.forEach(s->interfaceMapper.put(s,(Map<String, Object>) new Yaml()
+//                                                    .load(getClass().getResourceAsStream("/inf/nxmile/"+s+".yaml"))));
+
+        Function<String, Map<String, Object>> valueMapper = s -> (Map<String, Object>)new Yaml().load(getClass().getResourceAsStream("/inf/nxmile/Interface_"+s+".yaml"));
+        interfaceMapper = ((List<String>)ifListMap.get("InterfaceList")).stream().collect(Collectors.toMap(s -> s, valueMapper));
+    }
+
+    public static List<Map<String, Object>> getRequest(String interfaceName) {
+        return (List<Map<String, Object>>) interfaceMapper.get(interfaceName).get("request");
+    }
+
+    public static List<Map<String, Object>> getResponse(String interfaceName) {
+        return (List<Map<String, Object>>) interfaceMapper.get(interfaceName).get("response");
+    }
+
+    public List<String> getIfList() {
+        return ifList;
+    }
+
+    public static Map<String,Map<String, Object>> getInterfaceMapper() {
+        return interfaceMapper;
+    }
+
+}
