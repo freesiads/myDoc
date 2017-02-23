@@ -51,5 +51,8 @@
    24) file을 새로 여니, master내용은 없고, feature_20170223 최종 commit상태임.
    25) commit해보자. 아무래도 conflict 날듯.
    26) git add docu.txt, git commit -m "conflict or not?"
+   27) conflict 안난다. 역시. 즉 서로 다른 branch에서 서로 다른 version의 문서가 독립적으로 관리된다.
+   28) merge 하면 conflict 날듯 하다.
+   29) 일단 다시 add, commit하고 master branch로 이동하여 merge를 시도해보자.
 
 
