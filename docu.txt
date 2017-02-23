@@ -46,5 +46,10 @@
    19) git checkout feature_20170223, git add docu.txt, git commit -m "git study add" 순서대로 해보았다.
    20) 그렇게 하고 vi로 보니 17번 이후 반영이 안되었다.. 저장을 안해서 그런가 보다.
    21) 저장하고 보니 잘 되네. 다시 commit한다.
+   22) --------------------------------------------------------------------
+   23) 여기서부터 branch를 바꾸어서 한다. git checkout feature_20170223
+   24) file을 새로 여니, master내용은 없고, feature_20170223 최종 commit상태임.
+   25) commit해보자. 아무래도 conflict 날듯.
+   26) git add docu.txt, git commit -m "conflict or not?"
 
 
