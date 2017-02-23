@@ -51,5 +51,9 @@
    24) master로 변경하고 보니, 위에 이전 commit한 4.계속 헷갈리는~~ 까지만 보인다. 그 이후엔 안보이네.ㅋㅋ
    25) 일단 충돌을 만들어 보기 위해, master에서 수정하고 commit한 후 branch를 바꾸어서 vi로 다시 편집하여, 충돌 확인하자.
    26) git add docu.txt, git commit -m "commit in master"
+   27) ================================================================================
+   28) 다시 master로 왔다.
+   29) 이제 merge해보자. git merge feature_20170223 치면 될것이다.
+   30) 아 merge 이전에 commit하고 하자.
 
 
