@@ -20,3 +20,36 @@
 4. 계속 헷갈리는 한가지가 있다. Map 객체이다.
    1) Map은 추상클래스다 따라서 생성할수 없다.(new로)
    2) Map은 그래서 HashMap 클래스 등으로 생성하여 Casting하여 사용한다.
+
+5. git에 대해 좀더 알아보자
+   1) checkout 이란. 호텔에서 나가는것을 의미한다. 따라서 Branch개념을 도입하여, git checkout 은 현재 Branch에서 나간다 라는것이다.
+   2) 그냥 나가면 어디로 가는지 알아야 한다. 따라서 git checkout 만 치면 Your branch is up-to-date with 'orgin/master' 나온다.
+   3) 우선 이걸 이해하기 위해 branch를 좀더 보자.
+   4) 현재 만들어 져 있는 local branch 보는 방법 : git branch -l ( local 의 앞글자 )
+   5) 현재 만들어 져 있는 remote branch list 보는 방법 : gir branch -r ( remote 의 앞글자 )
+   6) 현재 만들어 져 있는 local, remote 전체 branch list 보는 방법 : git branch -a ( all 의 앞글자 )
+   7) orgin 개념은 여러 이견들이 있는것 같다. 하지만 아래 정의가 가장 와 닿는다.
+      가. origin is the alias for the URL from which you cloned the repository. Note that you can change this alias.
+      나. There is one master branch in the remote repository (aliased by origin). There is also another master branch created locally.
+   8) 따라서, git branch -a를 해보니, local엔 master만 존재, remote엔 orgin/master만 존재한다.
+      orgin의 의미는 remote url이라고 하니 remote에도 master만 있다는 것이다.
+   9) 그래서 git branch 만 치면 위에 처럼 나온다.
+   10) 먼저 git branch feature_20170223 으로 feature_20170223 이름의 branch를 만들자.
+   11) git branch -l 로 보니 잘 보인다.
+   12) 현재 branch를 master에서 feature_20170223로 옮기자. ( git checkout feature_20170223 )
+   13) git commit -m "git study add" 로 하니 On branch feature_20170223, nothing to commit, working directory clean이 나옴.
+   14) 즉 새로 만든 branch엔 아무내용이 없다. 따라서 master에 있는 것을 가져와 보자..
+   15) git merge feature_20170223 했는데 Already up-to-date로 나온다. 무슨 일일까.
+   16) 다시 git checkout master로 돌아와서 master에서 commit을 해보았다.
+   17) 계속 안된다. 확인해보니 변경사항을 staged상태로 올려야 한다. 즉 git add docu.txt를 하면 된다. 그렇게 해보았다.
+   18) 참, commit전에 staged된걸 다시 원복하고 싶었다. 이건 git reset HEAD docu.txt 하면 된다.
+   19) git checkout feature_20170223, git add docu.txt, git commit -m "git study add" 순서대로 해보았다.
+   20) 그렇게 하고 vi로 보니 17번 이후 반영이 안되었다.. 저장을 안해서 그런가 보다.
+   21) 저장하고 보니 잘 되네. 다시 commit한다.
+   22) master엔 어떤 정보가 있을까... 다시 master branch로 변경하고 vi docu.txt를 해보자.
+   23) git checkout master
+   24) master로 변경하고 보니, 위에 이전 commit한 4.계속 헷갈리는~~ 까지만 보인다. 그 이후엔 안보이네.ㅋㅋ
+   25) 일단 충돌을 만들어 보기 위해, master에서 수정하고 commit한 후 branch를 바꾸어서 vi로 다시 편집하여, 충돌 확인하자.
+   26) git add docu.txt, git commit -m "commit in master"
+
+
