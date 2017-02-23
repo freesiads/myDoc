@@ -41,5 +41,10 @@
    14) 즉 새로 만든 branch엔 아무내용이 없다. 따라서 master에 있는 것을 가져와 보자..
    15) git merge feature_20170223 했는데 Already up-to-date로 나온다. 무슨 일일까.
    16) 다시 git checkout master로 돌아와서 master에서 commit을 해보았다.
-   
+   17) 계속 안된다. 확인해보니 변경사항을 staged상태로 올려야 한다. 즉 git add docu.txt를 하면 된다. 그렇게 해보았다.
+   18) 참, commit전에 staged된걸 다시 원복하고 싶었다. 이건 git reset HEAD docu.txt 하면 된다.
+   19) git checkout feature_20170223, git add docu.txt, git commit -m "git study add" 순서대로 해보았다.
+   20) 그렇게 하고 vi로 보니 17번 이후 반영이 안되었다.. 저장을 안해서 그런가 보다.
+   21) 저장하고 보니 잘 되네. 다시 commit한다.
+
 
