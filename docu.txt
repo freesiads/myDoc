@@ -64,5 +64,6 @@
    28) 다시 master로 왔다.
    29) 이제 merge해보자. git merge feature_20170223 치면 될것이다.
    30) 아 merge 이전에 commit하고 하자.
+   31) freesiabe test
 
 
