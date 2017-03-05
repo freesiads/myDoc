@@ -1,4 +1,4 @@
-1. generateProto 가 오류가 발생함.
+﻿1. generateProto 가 오류가 발생함.
    1) intellij 에는 오류메세지가 안보여셔, 터미널에서 gradle generateProto 를 치니 proto화일명을 못찾는다고 나와서,
    2) build.gradle로 sourceSets을 보니 src/main/shared/protofile 설정되어 있다.
    3) 원래 기본은 src/main/proto인데 협업을 위해 shared로 옮겨두었다.
@@ -65,5 +65,6 @@
    29) 이제 merge해보자. git merge feature_20170223 치면 될것이다.
    30) 아 merge 이전에 commit하고 하자.
    31) freesiabe test
+   32) freesiable win test
 
 
